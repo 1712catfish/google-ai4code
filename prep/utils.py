@@ -2,6 +2,7 @@ try:
     INTERACTIVE
 except NameError:
     from setups import *
+    from bottleneck_setups import *
 
 
 def _bytes_feature(value):
@@ -184,3 +185,12 @@ def prep_and_serialize(ds: 'ds: [[id, cell_orders]]',
         pd.DataFrame(info_ds).to_csv(os.path.join(OUTPUT_PATH, 'inputs.csv'))
         if shuffle:
             print('Dataset shuffled. Order in csv no longer reflect record order.')
+
+
+def prep_single_cpu(ds):
+    shutil.rmtree(RECORD_PATH, ignore_errors=True)
+    os.mkdir(RECORD_PATH)
+
+    print(f'Found {len(ds)} notebook(s).', end='\n\n')
+    RECORDS_PER_FOLD = 1024
+    prep_and_serialize(ds, shuffle=False, block_size=RECORDS_PER_FOLD)
