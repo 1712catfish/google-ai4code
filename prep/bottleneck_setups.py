@@ -9,5 +9,7 @@ MODEL_NAME = "microsoft/codebert-base"
 TOKENIZER = transformers.AutoTokenizer.from_pretrained(MODEL_NAME)
 TOKENIZERS = [transformers.AutoTokenizer.from_pretrained(MODEL_NAME) for _ in range(THREADS_LIMIT + 4)]
 
+STH = 2
+
 print(f'Using {THREADS_LIMIT} threads')
 print(f'Initialize {len(TOKENIZERS)} TOKENIZERS.')
