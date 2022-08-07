@@ -1,0 +1,15 @@
+def generate_run_script_heavy()
+    'too heavy, deprecated'
+    for i, (key, description) in enumerate(zip(MODULES, RUN_DESCRIPTION)):
+        print(f"try:")
+        print(f"    RUNS")
+        print(f"except NameError:")
+        print(f"    RUNS = MODULES")
+        print()
+        print(f"print('Step {i + 1}/{len(MODULES)}: {description}:')")
+        print(f"if '{key}' in RUNS:")
+        print(f"    exec(PREP['{key}'])")
+        print(f"    print('Finished.')")
+        print(f"else:")
+        print(f"    print('Using cache.')")
+        print(f"print()")
