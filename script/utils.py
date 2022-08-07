@@ -12,9 +12,11 @@ def load_code(path='.', modules=None):
     return codes
 
 
-def generate_run_script(code_strings, run_description):
+def generate_run_script(code_string_vars, run_description=None):
     run_script = []
-    for i, (code_string, description) in enumerate(zip(code_strings, run_description)):
+    if run_description is None:
+        run_description = code_string_vars
+    for i, (code_string_var, description) in enumerate(zip(code_string_vars, run_description)):
         run_script.append(f"print('{description}...'); ")
-        run_script.append(f"exec({code_string})'])")
-    return '\n'.join(run_script)
+        run_script.append(f"exec({code_string_var})'])\n")
+    return ''.join(run_script)

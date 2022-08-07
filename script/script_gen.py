@@ -2,8 +2,6 @@ from utils import *
 
 MODULES = ['dependencies', 'setups', 'bottleneck_setups', 'utils', 'distributed']
 
-PREP = load_code('/content/google-ai4code/prep')
-
 RUN_DESCRIPTION = [
     'Importing dependencies',
     'Setting up light variables',
@@ -12,4 +10,8 @@ RUN_DESCRIPTION = [
     'Running distributed data preprocessing'
 ]
 
-generate_run_script([f"PREP['{key}']" for key in MODULES], RUN_DESCRIPTION)
+CODES = load_code(path='/content/google-ai4code/prep', modules=MODULES)
+print(generate_run_script(
+    code_string_vars=[f"CODES['{key}']" for key in MODULES],
+    run_description=RUN_DESCRIPTION
+))
