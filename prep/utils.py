@@ -2,7 +2,7 @@ try:
     INTERACTIVE
 except NameError:
     from setups import *
-    from bottleneck_setups import *
+    from heavy_setups import *
 
 
 def _bytes_feature(value):

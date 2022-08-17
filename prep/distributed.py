@@ -1,7 +1,7 @@
 try:
     INTERACTIVE
 except NameError:
-    from single_cpu import *
+    from utils import *
 
 TOTAL_SHARD = 4
 SHARD_NO = 1

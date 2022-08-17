@@ -30,3 +30,14 @@ def prep_data(df):
             ) as writer:
                 for record in records[ids]:
                     writer.write(record)
+
+
+# packages
+# !rm -r sample_data
+# # !pip install alive-progress
+# !pip install orjson
+# !pip install transformers
+# # !pip install ray
+# !pip install fast-map
+# !pip install pkbar
+# # !pip install pympler
